@@ -10,12 +10,16 @@ else if (ErrorContent is not null)
 }
 else
 {
-    <div class="custom-error"><span class="oi oi-warning"></span>&nbsp; @this.ErrorMessage</div>
+    <div class="custom-error"><span class="oi oi-warning warning-icon"></span>&nbsp; @this.ErrorMessage</div>
 }
 
 <style>
     .custom-error {
-        background-color: lightcoral;
+        border: red solid;
         padding: 0.5rem;
+    }
+
+    .warning-icon {
+        color: red;
     }
 </style>

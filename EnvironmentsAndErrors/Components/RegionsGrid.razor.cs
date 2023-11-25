@@ -2,6 +2,7 @@
 
 using EnvironmentsAndErrors.Models;
 using EnvironmentsAndErrors.Services;
+using EnvironmentsAndErrors.ViewModels;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -9,7 +10,8 @@ public partial class RegionsGrid
 {
     private ErrorBoundary? errorBoundary;
 
-    private RegionsService? RegionsService { get; set; } = new();
+    [CascadingParameter(Name = "ViewModel")]
+    private IndexViewModel? ViewModel { get; set; }
 
     [Parameter]
     public Country? Country { get; set; }

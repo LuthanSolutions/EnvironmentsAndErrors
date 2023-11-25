@@ -12,12 +12,12 @@ public partial class CustomErrorBoundary : ErrorBoundary
     private IWebHostEnvironment? WebHostEnvironment { get; set; }
 
     [Parameter]
-    public string? NotDevelopmentErrorMessage { get; set; }
+    public string? NonDevelopmentErrorMessage { get; set; }
 
     private string ErrorMessage =>
         this.WebHostEnvironment!.IsDevelopment()
             ? $"Error: {this.CurrentException?.Message!} Target: {this.CurrentException?.TargetSite}"
-            : $"{(string.IsNullOrEmpty(this.NotDevelopmentErrorMessage) ? "An error has occurred!" : this.NotDevelopmentErrorMessage)}";
+            : $"{(string.IsNullOrEmpty(this.NonDevelopmentErrorMessage) ? "An error has occurred!" : this.NonDevelopmentErrorMessage)}";
 
     protected override Task OnErrorAsync(Exception exception)
     {

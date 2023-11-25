@@ -2,7 +2,7 @@
 
 <CustomErrorBoundary @ref=errorBoundary NonDevelopmentErrorMessage="Error retrieving Countries.">
     <ChildContent>
-        <SfGrid DataSource="@this.ViewModel?.CountriesService?.GetAllCountries()">
+        <SfGrid DataSource="@this.Countries">
             <GridColumns>
                 <GridColumn Field="@nameof(Country.Id)" />
                 <GridColumn Field="@nameof(Country.Name)" />

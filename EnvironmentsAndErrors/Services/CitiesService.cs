@@ -4,9 +4,9 @@ using EnvironmentsAndErrors.Models;
 
 public class CitiesService
 {
-    public IEnumerable<City>? GetCityByRegion(Region region)
+    public IEnumerable<City>? GetCityByRegion(Region? region)
     {
-        switch (region.Name)
+        switch (region?.Name)
         {
             case "Northumberland":
                 {

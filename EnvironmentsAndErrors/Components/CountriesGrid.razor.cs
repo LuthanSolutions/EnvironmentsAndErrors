@@ -1,5 +1,6 @@
 ﻿namespace EnvironmentsAndErrors.Components;
 
+using EnvironmentsAndErrors.Models;
 using EnvironmentsAndErrors.Services;
 using EnvironmentsAndErrors.ViewModels;
 using Microsoft.AspNetCore.Components;
@@ -11,6 +12,8 @@ public partial class CountriesGrid
 
     [CascadingParameter(Name = "ViewModel")]
     private IndexViewModel? ViewModel { get; set; }
+
+    private IEnumerable<Country>? Countries => this.ViewModel?.CountriesService?.GetAllCountries();
 
     protected override void OnParametersSet() =>
         this.errorBoundary?.Recover();

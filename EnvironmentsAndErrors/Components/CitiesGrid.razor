@@ -1,5 +1,5 @@
 ﻿<CustomErrorBoundary @ref="@errorBoundary" NonDevelopmentErrorMessage="Error retrieving Cities.">
     <ChildContent>
-        <SfGrid DataSource="@this.ViewModel?.CitiesService?.GetCityByRegion(this.Region!)" />
+        <SfGrid DataSource="@this.Cities" />
     </ChildContent>
 </CustomErrorBoundary>

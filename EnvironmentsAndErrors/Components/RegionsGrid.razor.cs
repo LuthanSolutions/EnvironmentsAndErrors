@@ -16,6 +16,8 @@ public partial class RegionsGrid
     [Parameter]
     public Country? Country { get; set; }
 
+    private IEnumerable<Region>? Regions => this.ViewModel?.RegionsService?.GetRegionsByCountry(this.Country!);
+
     protected override void OnParametersSet() =>
         this.errorBoundary?.Recover();
 }

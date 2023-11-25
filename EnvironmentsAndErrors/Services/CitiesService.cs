@@ -28,7 +28,7 @@ public class CitiesService
                 }
             case "Cumbria":
                 {
-                    throw new ArgumentException();
+                    throw new IndexOutOfRangeException();
                     return new List<City>()
                     {
                         new(){ Id = 1, Name = "Carlisle"},

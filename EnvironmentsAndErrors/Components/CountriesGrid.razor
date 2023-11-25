@@ -1,6 +1,7 @@
 ﻿@using Models
+@using EnvironmentsAndErrors.Components.ErrorBoundaries
 
-<ErrorBoundary @ref=errorBoundary>
+<CustomErrorBoundary @ref=errorBoundary>
     <ChildContent>
         <SfGrid DataSource="@this.CountriesService?.GetAllCountries()">
             <GridColumns>
@@ -18,4 +19,4 @@
             </GridColumns>
         </SfGrid>
     </ChildContent>
-</ErrorBoundary>
+</CustomErrorBoundary>

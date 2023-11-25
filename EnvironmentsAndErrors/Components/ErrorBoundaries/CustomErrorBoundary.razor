@@ -1,0 +1,21 @@
+﻿@inherits ErrorBoundary
+
+@if (CurrentException is null)
+{
+    @ChildContent
+}
+else if (ErrorContent is not null)
+{
+    @ErrorContent(CurrentException)
+}
+else
+{
+    <div class="custom-error"><span class="oi oi-warning"></span>&nbsp; @this.ErrorMessage</div>
+}
+
+<style>
+    .custom-error {
+        background-color: lightcoral;
+        padding: 0.5rem;
+    }
+</style>

@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Components.Web;
 
 public partial class Index
 {
-    ErrorBoundary? errorBoundary;
+    private ErrorBoundary? errorBoundary;
 
-    CountriesService CountriesService { get; set; } = new();
-    IEnumerable<Country>? Countries { get; set; }
+    private CountriesService CountriesService { get; set; } = new();
+    private IEnumerable<Country>? Countries { get; set; }
 
-    protected override void OnInitialized() => 
+    protected override void OnInitialized() =>
         this.Countries = this.CountriesService.GetAllCountries();
 
-    protected override void OnParametersSet() => 
+    protected override void OnParametersSet() =>
         this.errorBoundary?.Recover();
 
 }

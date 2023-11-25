@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Components.Web;
 
 public partial class CitiesGrid
 {
-    ErrorBoundary? errorBoundary;
+    private ErrorBoundary? errorBoundary;
 
-    CitiesService? CitiesService { get; set; } = new();
+    private CitiesService? CitiesService { get; set; } = new();
 
     [Parameter]
     public Region? Region { get; set; }

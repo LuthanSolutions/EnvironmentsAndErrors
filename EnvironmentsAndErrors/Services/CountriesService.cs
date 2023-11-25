@@ -4,7 +4,7 @@ using EnvironmentsAndErrors.Models;
 
 public class CountriesService
 {
-    RegionsService RegionsService { get; set; } = new();
+    private RegionsService RegionsService { get; set; } = new();
     public IEnumerable<Country> GetAllCountries()
     {
         var countries = new List<Country>

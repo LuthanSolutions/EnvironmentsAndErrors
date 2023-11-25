@@ -1,7 +1,6 @@
 ﻿namespace EnvironmentsAndErrors.Services;
 
 using EnvironmentsAndErrors.Models;
-using Microsoft.AspNetCore.Server.IIS.Core;
 
 public class RegionsService
 {

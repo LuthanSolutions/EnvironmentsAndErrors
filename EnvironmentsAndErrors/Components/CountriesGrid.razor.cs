@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Components.Web;
 
 public partial class CountriesGrid
 {
-    ErrorBoundary? errorBoundary;
+    private ErrorBoundary? errorBoundary;
 
-    CountriesService CountriesService { get; set; } = new();
+    private CountriesService CountriesService { get; set; } = new();
 
     protected override void OnParametersSet() =>
         this.errorBoundary?.Recover();

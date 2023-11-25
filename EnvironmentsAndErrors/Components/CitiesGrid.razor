@@ -1,6 +1,4 @@
-﻿@using EnvironmentsAndErrors.Components.ErrorBoundaries
-
-<CustomErrorBoundary @ref="@errorBoundary">
+﻿<CustomErrorBoundary @ref="@errorBoundary">
     <ChildContent>
         <SfGrid DataSource="@this.CitiesService?.GetCityByRegion(this.Region!)" />
     </ChildContent>

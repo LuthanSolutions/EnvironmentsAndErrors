@@ -1,0 +1,5 @@
+﻿<ErrorBoundary @ref="@errorBoundary">
+    <ChildContent>
+        <SfGrid DataSource="@this.CitiesService?.GetCityByRegion(this.Region!)" />
+    </ChildContent>
+</ErrorBoundary>

@@ -1,5 +1,6 @@
 using EnvironmentsAndErrors.Data;
 using Microsoft.AspNetCore.Authentication.Negotiate;
+using Syncfusion.Blazor;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,9 @@ builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization(options =>
     // By default, all incoming requests will be authorized according to the default policy.
     options.FallbackPolicy = options.DefaultPolicy);
+
+builder.Services.AddSyncfusionBlazor();
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjc4NTY3NEAzMjMzMmUzMDJlMzBSdVlLZnMvYTZNb3FNNTk0eTA4REVoalk2YnF1bHAzNTFFUnNxcythd3lZPQ==");
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();

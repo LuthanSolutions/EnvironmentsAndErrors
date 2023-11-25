@@ -1,0 +1,20 @@
+﻿@using Models
+
+<ErrorBoundary @ref="@errorBoundary">
+    <ChildContent>
+        <SfGrid DataSource="@this.RegionsService?.GetRegionsByCountry(this.Country!)">
+            <GridColumns>
+                <GridColumn Field="@nameof(Country.Id)" />
+                <GridColumn Field="@nameof(Country.Name)" />
+                <GridTemplates>
+                    <DetailTemplate Context="regionContext">
+                        @{
+                            var region = (regionContext as Region);
+                            <CitiesGrid Region="region" />
+                        }
+                    </DetailTemplate>
+                </GridTemplates>
+            </GridColumns>
+        </SfGrid>
+    </ChildContent>
+</ErrorBoundary>

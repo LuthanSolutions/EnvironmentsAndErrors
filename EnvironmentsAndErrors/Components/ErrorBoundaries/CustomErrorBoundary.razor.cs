@@ -11,10 +11,13 @@ public partial class CustomErrorBoundary : ErrorBoundary
     [Inject]
     private IWebHostEnvironment? WebHostEnvironment { get; set; }
 
+    [Parameter]
+    public string? NotDevelopmentErrorMessage { get; set; }
+
     private string ErrorMessage =>
         this.WebHostEnvironment!.IsDevelopment()
             ? $"Error: {this.CurrentException?.Message!} Target: {this.CurrentException?.TargetSite}"
-            : "An error has occurred!";
+            : $"{(string.IsNullOrEmpty(this.NotDevelopmentErrorMessage) ? "An error has occurred!" : this.NotDevelopmentErrorMessage)}";
 
     protected override Task OnErrorAsync(Exception exception)
     {

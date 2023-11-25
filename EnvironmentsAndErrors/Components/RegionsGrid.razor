@@ -1,6 +1,6 @@
 ﻿@using Models
 
-<CustomErrorBoundary @ref="@errorBoundary">
+<CustomErrorBoundary @ref="@errorBoundary" NotDevelopmentErrorMessage="Error retrieving Regions.">
     <ChildContent>
         <SfGrid DataSource="@this.RegionsService?.GetRegionsByCountry(this.Country!)">
             <GridColumns>

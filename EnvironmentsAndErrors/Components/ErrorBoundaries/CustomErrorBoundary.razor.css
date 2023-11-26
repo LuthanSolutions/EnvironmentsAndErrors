@@ -1,0 +1,8 @@
+﻿.custom-error {
+    border: red solid;
+    padding: 0.5rem;
+}
+
+.warning-icon {
+    color: red;
+}

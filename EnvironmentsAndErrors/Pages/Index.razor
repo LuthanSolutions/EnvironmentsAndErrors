@@ -6,9 +6,10 @@
 
 <CustomErrorBoundary @ref="errorBoundary">
     <ChildContent>
-        <h1>Hello, world!</h1>
-
-        Welcome to your new app.
+        <p>@this.ConnectionStrings?.ConnectionString1</p>
+        <p>@this.ConnectionStrings?.ConnectionString2</p>
+        <p>@this.ConnectionStrings?.ConnectionString3</p>
+        <p>@this.ConnectionStrings?.ConnectionString4</p>
         <CascadingValue Name="ViewModel" Value="this.ViewModel">
             <CountriesGrid />
         </CascadingValue>

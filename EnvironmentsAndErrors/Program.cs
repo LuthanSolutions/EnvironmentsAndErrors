@@ -1,4 +1,5 @@
 using EnvironmentsAndErrors.Data;
+using EnvironmentsAndErrors.Services;
 using Microsoft.AspNetCore.Authentication.Negotiate;
 using Serilog;
 using Syncfusion.Blazor;
@@ -21,6 +22,9 @@ Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjc4NTY3NEAzMjMz
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddScoped<IConnectionStringsService, ConnectionStringsService>();
+
+builder.Configuration.AddEnvironmentVariables();
 
 var app = builder.Build();
 

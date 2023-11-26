@@ -1,7 +1,6 @@
 ﻿namespace EnvironmentsAndErrors.Pages;
 
 using EnvironmentsAndErrors.Models;
-using EnvironmentsAndErrors.Services;
 using EnvironmentsAndErrors.ViewModels;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;

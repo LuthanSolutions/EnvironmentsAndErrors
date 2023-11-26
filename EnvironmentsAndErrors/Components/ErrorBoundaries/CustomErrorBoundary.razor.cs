@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 public partial class CustomErrorBoundary : ErrorBoundary
 {
+    private const string DefaultErrorMessage = "An error has occurred!";
+
     [Inject]
     private IWebHostEnvironment? WebHostEnvironment { get; set; }
 
@@ -17,7 +19,7 @@ public partial class CustomErrorBoundary : ErrorBoundary
     private string ErrorMessage =>
         this.WebHostEnvironment!.IsDevelopment()
             ? $"Error: {this.CurrentException?.Message!} Target: {this.CurrentException?.TargetSite}"
-            : $"{(string.IsNullOrEmpty(this.NonDevelopmentErrorMessage) ? "An error has occurred!" : this.NonDevelopmentErrorMessage)}";
+            : $"{(string.IsNullOrEmpty(this.NonDevelopmentErrorMessage) ? DefaultErrorMessage : this.NonDevelopmentErrorMessage)}";
 
     protected override Task OnErrorAsync(Exception exception)
     {

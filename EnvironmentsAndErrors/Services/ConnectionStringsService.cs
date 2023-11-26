@@ -11,6 +11,8 @@ public class ConnectionStringsService : IConnectionStringsService
 {
     public ConnectionStrings ConnectionStrings { get; private set; } = new();
 
-    public ConnectionStringsService(IConfiguration configuration) => 
-        configuration.GetSection(nameof(this.ConnectionStrings)).Bind(this.ConnectionStrings);
+    public ConnectionStringsService(IConfiguration configuration) =>
+        configuration
+        .GetSection(nameof(this.ConnectionStrings))
+        .Bind(this.ConnectionStrings);
 }

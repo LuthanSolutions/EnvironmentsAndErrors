@@ -11,6 +11,6 @@ public partial class MainLayout
 
     public ConnectionStrings? ConnectionStrings { get; set; }
 
-    protected override void OnInitialized() => 
+    protected override void OnInitialized() =>
         this.ConnectionStrings = this.ConnectionStringsService?.ConnectionStrings;
 }

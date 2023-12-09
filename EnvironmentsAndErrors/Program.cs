@@ -3,6 +3,7 @@ using EnvironmentsAndErrors.Services;
 using Microsoft.AspNetCore.Authentication.Negotiate;
 using Serilog;
 using Syncfusion.Blazor;
+using Syncfusion.Blazor.Popups;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,7 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Services.AddSyncfusionBlazor();
 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjc4NTY3NEAzMjMzMmUzMDJlMzBSdVlLZnMvYTZNb3FNNTk0eTA4REVoalk2YnF1bHAzNTFFUnNxcythd3lZPQ==");
+builder.Services.AddScoped<SfDialogService>();
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();

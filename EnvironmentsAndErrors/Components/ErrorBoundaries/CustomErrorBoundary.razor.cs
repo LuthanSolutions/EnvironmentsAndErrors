@@ -22,7 +22,7 @@ public partial class CustomErrorBoundary : ErrorBoundary
 
     private string ErrorMessage =>
         this.WebHostEnvironment!.IsDevelopment()
-            ? $"Error: {this.CurrentException?.Message!} Target: {this.CurrentException?.TargetSite}"
+            ? $"Error: {this.CurrentException?.Message!}<br/> Target: {this.CurrentException?.TargetSite}"
             : $"{(string.IsNullOrEmpty(this.NonDevelopmentErrorMessage) ? DefaultErrorMessage : this.NonDevelopmentErrorMessage)}";
 
     protected override Task OnErrorAsync(Exception exception)
@@ -30,4 +30,7 @@ public partial class CustomErrorBoundary : ErrorBoundary
         Log.Error(this.CurrentException, this.CurrentException?.Message!);
         return Task.CompletedTask;
     }
+
+    private void HideDialog() =>
+        this.Visible = false;
 }

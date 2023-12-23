@@ -14,27 +14,12 @@ else
     {
         <SfDialog Visible="@this.Visible" IsModal="true" Width="50%" CssClass="error-dialog">
             <DialogTemplates>
-                <Header>Error</Header>
+                <Header>Error <span class="oi oi-warning warning-icon"/></Header>
                 <Content>
-                    @this.ErrorMessage
-                    @if (this.WebHostEnvironment!.IsDevelopment())
-                    {
-                        <div class="mt-2">
-                            <SfAccordion>
-                                <AccordionItems>
-                                    <AccordionItem>
-                                        <HeaderTemplate>Stack trace</HeaderTemplate>
-                                        <ContentTemplate>
-                                            @this.CurrentException.StackTrace
-                                        </ContentTemplate>
-                                    </AccordionItem>
-                                </AccordionItems>
-                            </SfAccordion>
-                        </div>
-                    }
+                    @((MarkupString)this.ErrorMessage)
                 </Content>
                 <FooterTemplate>
-                    <SfButton Content="Ok" OnClick="@(() => this.Visible = false)" />
+                    <SfButton Content="Ok" OnClick="@this.HideDialog" CssClass="ok-button" />
                 </FooterTemplate>
             </DialogTemplates>
         </SfDialog>
@@ -55,6 +40,13 @@ else
         font-size: 1.5rem;
     }
 
-    .e-accordion .e-acrdn-item.e-select > .e-acrdn-header {
+    .ok-button {
+        background-color: red;
     }
+
+        .ok-button:hover {
+            border-color: red;
+            background-color: red;
+            opacity: 50%;
+        }
 </style>

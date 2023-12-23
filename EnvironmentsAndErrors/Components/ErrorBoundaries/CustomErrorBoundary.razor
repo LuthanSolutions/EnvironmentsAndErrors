@@ -10,5 +10,51 @@ else if (ErrorContent is not null)
 }
 else
 {
-    <div class="custom-error"><span class="oi oi-warning warning-icon"></span>&nbsp; @this.ErrorMessage</div>
+    if (this.ShowErrorInDialog)
+    {
+        <SfDialog Visible="@this.Visible" IsModal="true" Width="50%" CssClass="error-dialog">
+            <DialogTemplates>
+                <Header>Error</Header>
+                <Content>
+                    @this.ErrorMessage
+                    @if (this.WebHostEnvironment!.IsDevelopment())
+                    {
+                        <div class="mt-2">
+                            <SfAccordion>
+                                <AccordionItems>
+                                    <AccordionItem>
+                                        <HeaderTemplate>Stack trace</HeaderTemplate>
+                                        <ContentTemplate>
+                                            @this.CurrentException.StackTrace
+                                        </ContentTemplate>
+                                    </AccordionItem>
+                                </AccordionItems>
+                            </SfAccordion>
+                        </div>
+                    }
+                </Content>
+                <FooterTemplate>
+                    <SfButton Content="Ok" OnClick="@(() => this.Visible = false)" />
+                </FooterTemplate>
+            </DialogTemplates>
+        </SfDialog>
+    }
+    else
+    {
+        <div class="custom-error"><span class="oi oi-warning warning-icon"></span>&nbsp; @this.ErrorMessage</div>
+    }
 }
+
+<style>
+    .error-dialog {
+        border: solid thin red;
+    }
+
+    .e-dialog .e-dlg-header {
+        color: red;
+        font-size: 1.5rem;
+    }
+
+    .e-accordion .e-acrdn-item.e-select > .e-acrdn-header {
+    }
+</style>

@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 public partial class CustomErrorBoundary : ErrorBoundary
 {
     private const string DefaultErrorMessage = "An error has occurred!";
+    private bool Visible { get; set; } = true;
 
     [Inject]
     private IWebHostEnvironment? WebHostEnvironment { get; set; }
 
     [Parameter]
     public string? NonDevelopmentErrorMessage { get; set; }
+
+    [Parameter]
+    public bool ShowErrorInDialog { get; set; } = false;
 
     private string ErrorMessage =>
         this.WebHostEnvironment!.IsDevelopment()

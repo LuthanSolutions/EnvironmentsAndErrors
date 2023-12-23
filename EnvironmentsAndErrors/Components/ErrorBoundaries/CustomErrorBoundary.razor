@@ -13,6 +13,7 @@ else
     if (this.ShowErrorInDialog)
     {
         <SfDialog Visible="@this.Visible" IsModal="true" Width="50%" CssClass="error-dialog">
+            <DialogAnimationSettings Effect="DialogEffect.Fade" />
             <DialogTemplates>
                 <Header>Error <span class="oi oi-warning warning-icon"/></Header>
                 <Content>
@@ -26,7 +27,7 @@ else
     }
     else
     {
-        <div class="custom-error"><span class="oi oi-warning warning-icon"></span>&nbsp; @this.ErrorMessage</div>
+        <div class="custom-error"><span class="oi oi-warning"></span>&nbsp; @this.ErrorMessage</div>
     }
 }
 
